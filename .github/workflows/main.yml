@@ -5,32 +5,31 @@ on:
     branches: [ main ]
 
 jobs:
+
   build:
-  
     name: 🎉 Deploy
-    
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
-        
+        node-version: [12.x, 14.x, 16.x]
+
     steps:
-    
     - name: 🚚 1.Get latest code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       
-    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .en
+    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
     
-    - uses: borales/actions-yarn@v3
+
+    - uses: borales/actions-yarn@v2.3.0
       with:
         cmd: install # will run `yarn install` command
 
-    - uses: borales/actions-yarn@v3
+    - uses: borales/actions-yarn@v2.3.0
       with:
           cmd: build # will run `yarn build` command
 
-    - uses: borales/actions-yarn@v3
+    - uses: borales/actions-yarn@v2.3.0
       with:
           cmd: global add serve # will run `yarn test` command
     
