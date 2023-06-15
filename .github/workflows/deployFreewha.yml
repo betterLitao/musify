@@ -19,6 +19,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@master
       with:
-        ftp-server: sftp://better.ueuo.com
+        ftp-server: ftp://better.ueuo.com
         ftp-username: better.ueuo.com
         ftp-password: ${{ secrets.ftp_password }}
