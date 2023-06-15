@@ -9,8 +9,6 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
 
-
-
     steps:
     - name: 🚚 1.Get latest code
 
@@ -20,7 +18,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-    
 
     - uses: borales/actions-yarn@v4
       with:
