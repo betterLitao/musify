@@ -14,19 +14,19 @@ jobs:
     - name: 🚚 1.Get latest code
       uses: actions/checkout@v2
       
-    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
+  
     - uses: actions/setup-node@v3
       with:
-        node-version: 14
+        node-version: 16
+    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
+    
+    - uses: borales/actions-yarn@v3.0.0
+      with:
+        cmd: install  # will run `yarn install` command
 
     - uses: borales/actions-yarn@v3.0.0
       with:
-        cmd: install # will run `yarn install` command
-
-    - uses: borales/actions-yarn@v3.0.0
-      with:
-          cmd: build # will run `yarn build` command
-
+        cmd: build # will run `yarn build` command
     - uses: borales/actions-yarn@v3.0.0
       with:
           cmd: global add serve # will run `yarn test` command
