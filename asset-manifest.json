@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cdd081de.chunk.css",
+    "main.js": "/static/js/main.23f4598c.chunk.js",
+    "main.js.map": "/static/js/main.23f4598c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9a28dac3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9a28dac3.js.map",
+    "static/js/2.c40d1957.chunk.js": "/static/js/2.c40d1957.chunk.js",
+    "static/js/2.c40d1957.chunk.js.map": "/static/js/2.c40d1957.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.cdd081de.chunk.css.map": "/static/css/main.cdd081de.chunk.css.map",
+    "static/js/2.c40d1957.chunk.js.LICENSE.txt": "/static/js/2.c40d1957.chunk.js.LICENSE.txt",
+    "static/media/Cradles.7550c9eb.mp3": "/static/media/Cradles.7550c9eb.mp3",
+    "static/media/Death_Bed.368ab76d.mp3": "/static/media/Death_Bed.368ab76d.mp3",
+    "static/media/Dynamite.95f1ac52.mp3": "/static/media/Dynamite.95f1ac52.mp3",
+    "static/media/Mood.bb20d17c.mp3": "/static/media/Mood.bb20d17c.mp3",
+    "static/media/Skechers.58c9d5a9.mp3": "/static/media/Skechers.58c9d5a9.mp3",
+    "static/media/Stuck_With_U.5a471198.mp3": "/static/media/Stuck_With_U.5a471198.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a28dac3.js",
+    "static/js/2.c40d1957.chunk.js",
+    "static/css/main.cdd081de.chunk.css",
+    "static/js/main.23f4598c.chunk.js"
+  ]
+}
