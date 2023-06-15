@@ -1,0 +1,24 @@
+name: 🚀 Deploy freewha
+on:
+  workflow_run:
+    workflows: ["生成静态文件"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy 部署到freewha
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+    
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp://你的freewha域名
+        ftp-username: 你的freewha域名
+        ftp-password: ${{ secrets.ftp_password }}
