@@ -9,16 +9,18 @@ jobs:
   build:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [14]
     steps:
     - name: 🚚 1.Get latest code
       uses: actions/checkout@v2
       
+    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
   
     - uses: actions/setup-node@v3
       with:
-        node-version: 16
-    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
+        node-version: 14
     
     - uses: borales/actions-yarn@v3.0.0
       with:
