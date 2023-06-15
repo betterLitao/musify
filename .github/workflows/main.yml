@@ -29,6 +29,7 @@ jobs:
 
     - uses: borales/actions-yarn@v3.0.0
       with:
+          node-version: ${{ matrix.node-version }}
           cmd: build # will run `yarn build` command
 
     - uses: borales/actions-yarn@v3.0.0
