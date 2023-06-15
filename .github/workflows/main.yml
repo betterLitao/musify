@@ -22,16 +22,16 @@ jobs:
       with:
         node-version:  ${{ matrix.node-version }} # 自己正在使用的node版本即可
     - run: node -v # 查看node版本号
-    - uses: borales/actions-yarn@v2.3.0
+    - uses: borales/actions-yarn@v3.0.0
       with:
         cmd: install # will run `yarn install` command
 
-    - uses: borales/actions-yarn@v2.3.0
+    - uses: borales/actions-yarn@v3.0.0
       with:
         node-version: 'entryPoint'
         cmd: build # will run `yarn build` command
 
-    - uses: borales/actions-yarn@v2.3.0
+    - uses: borales/actions-yarn@v3.0.0
       with:
           cmd: global add serve # will run `yarn test` command
     
