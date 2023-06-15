@@ -6,15 +6,17 @@ on:
 
 jobs:
   build:
+  
     name: 🎉 Deploy
+    
     runs-on: ubuntu-latest
-
 
     strategy:
       matrix:
         node-version: [8.x, 10.x, 12.x]
         
     steps:
+    
     - name: 🚚 1.Get latest code
       uses: actions/checkout@v3
       
@@ -37,6 +39,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-
         keep_files: true
 
