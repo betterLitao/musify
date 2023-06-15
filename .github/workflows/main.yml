@@ -9,32 +9,29 @@ jobs:
   build:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14]
     steps:
-    - name: 🚚 1.Get latest code
-      uses: actions/checkout@v2
-      
-    - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
-    - name: Use Node.js 
-      uses: actions/setup-node@v2
-      with:
-        node-version:  ${{ matrix.node-version }} # 自己正在使用的node版本即可
-    - run: node -v # 查看node版本号
-    - uses: borales/actions-yarn@v3.0.0
-      with:
-        cmd: install # will run `yarn install` command
+      # 下载仓库代码 / 校验
+    - name: Checkout
+      # actions/checkout@v3 是 github 官方的一个action，用于 clone 该仓库的源码到工作流中
+      uses: actions/checkout@v3
 
-    - uses: borales/actions-yarn@v3.0.0
+    # 安装 pnpm
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
       with:
-        node-version: 'entryPoint'
-        cmd: build # will run `yarn build` command
-
-    - uses: borales/actions-yarn@v3.0.0
+        version: 7
+    # 安装 node
+    - name: Setup node
+      uses: actions/setup-node@v3
       with:
-          cmd: global add serve # will run `yarn test` command
-    
+        node-version: '16.x'
+        cache: 'pnpm'
+    # 安装依赖项
+    - name: Install
+      run: pnpm i 
+    # 打包组件
+    - name: Build Docs
+      run: pnpm  build
     - name: 📂 5.Deploy-gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
