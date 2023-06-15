@@ -9,10 +9,12 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
 
+
+
     steps:
     - name: 🚚 1.Get latest code
-
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
+#     - run: echo 'VUE_APP_DEFAULT_CONFIG_URL=${{ secrets.ENV_DEFAULT_CONFIG_URL }}' > .env
 
     - name: Set Node.js 16.x
       uses: actions/setup-node@v3
