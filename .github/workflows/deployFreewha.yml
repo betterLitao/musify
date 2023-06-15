@@ -17,7 +17,7 @@ jobs:
         ref: gh-pages
     
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@master
       with:
         ftp-server: ftp://better.ueuo.com
         ftp-username: better.ueuo.com
