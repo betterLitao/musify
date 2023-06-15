@@ -5,37 +5,40 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
-    steps:
-      # 下载仓库代码 / 校验
-    - name: Checkout
-      # actions/checkout@v3 是 github 官方的一个action，用于 clone 该仓库的源码到工作流中
-      uses: actions/checkout@v3
 
-    # 安装 pnpm
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 7
-    # 安装 node
-    - name: Setup node
+
+
+    steps:
+    - name: 🚚 1.Get latest code
+
+    - uses: actions/checkout@v3
+
+    - name: Set Node.js 16.x
       uses: actions/setup-node@v3
       with:
-        node-version: '16.x'
-        cache: 'pnpm'
-    # 安装依赖项
-    - name: Install
-      run: pnpm i 
-    # 打包组件
-    - name: Build Docs
-      run: pnpm  build
+        node-version: 16.x
+    
+
+    - uses: borales/actions-yarn@v4
+      with:
+        cmd: install # will run `yarn install` command
+
+    - uses: borales/actions-yarn@v4
+      with:
+          cmd: build # will run `yarn build` command
+
+    - uses: borales/actions-yarn@v4
+      with:
+          cmd: global add serve # will run `yarn test` command
+    
     - name: 📂 5.Deploy-gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
+
         keep_files: true
 
